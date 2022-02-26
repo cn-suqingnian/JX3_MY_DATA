@@ -1,0 +1,112 @@
+return {
+    DEBUFF = {
+        [-1] = {
+            {
+				{
+					tMark = {false,false,false,false,false,false,false,false,false,true,},  --标记
+					bTeamChannel = false,													--团队频道报警开关
+					bWhisperChannel = false,												--密聊频道报警开关
+					bBuffList = true,														--自身气劲列表开关
+					bPartyBuffList = true,													--团队气劲列表开关
+					bCenterAlarm = false,													--中央报警开关
+					bScreenHead = true,														--头顶报警开关
+					bTeamPanel = true,														--显示于团队面板开关
+					bOnlySelfSrc = false,													--仅显示来源于自己的气劲开关
+				},
+				aCataclysmBuff = {															--团队面板气劲监控
+					{
+						nStackNum = 0,														--触发层数
+						szStackOp = ">=",													--逻辑符
+						bOnlyMine = false,													--仅来源自己
+						bOnlyme = false,													--仅监控自己
+						szReminder = "驱散",												--备注
+						nPriority = 2,														--优先级 ，0最高
+						col = "#FFFFFFCC",													--蒙版颜色+透明度
+						nColAlpha = 0,														--描边透明度
+						bScreenHead = true,													--开启头顶提示	
+						colScreenHead = "#9400D3",											--头顶颜色
+						bAttention = true,													--蒙版警告
+						bCaution = true,													--开启特效警告
+					},
+				},
+				dwID = 20097,																--气劲id
+				nLevel = 0,																	--气劲等级
+				bCheckLevel = false,														--区分等级
+				nCount = 1,																	--到达层数
+				szNote = "米罗偕涯",														--备注
+				nIcon = 1498,																--图标
+				col = {255,255,255,},														--颜色 (自身气劲列表、头顶血条)
+				nScrutinyType =  2,															--监控对象类型：缺：全部 1自身2团队3敌人4当前目标
+			},
+		},
+    },
+	CASTING = {
+		[559] = {
+			{
+				dwID = 27911,
+				tCountdown = {
+					{
+						nClass = 8,
+						key = "P1",
+						nTime = "2.5,毒雾释放",
+						nRefresh = 0,
+						nFrame = 1,
+						nIcon = 13,
+					},
+				},
+				nLevel = 1,
+				[8] = {
+					bCenterAlarm = true,
+				},
+			},
+		},
+	},
+	NPC = {
+		[559] = {
+			{
+				nLevel = 1,
+				dwID = 106067,
+				nFrame = 57,
+				col = {255,0,0,},
+				tCountdown = {
+					{
+						nClass = 7,
+						key = "dw",
+						nTime = "13,毒雾·驱散",
+						nRefresh = 0,
+						nIcon = 14,
+						nFrame = 0,
+					},
+					{
+						nClass = 7,
+						key = "kg",
+						nTime = 3,
+						szName = "开怪了",
+						nRefresh = 0,
+						nIcon = 13,
+						nFrame = 5,
+					},
+				},
+				
+			},
+		},
+	},
+	TALK = {
+		[559] = {
+			{
+			tCountdown = {
+				{
+					nClass = 14,
+					key = "sszt",
+					nTime = 3,
+					szName = "{$sender}的圣手给了 {$receiver}",
+					nIcon = 13,
+					nFrame = 3,
+				},
+			},
+			szContent = "{$team},圣手织天！",
+			szTarget = "衣旎",
+			},
+		},
+	},
+}
